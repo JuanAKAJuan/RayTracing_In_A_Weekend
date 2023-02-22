@@ -60,3 +60,27 @@ inline Vector3 operator*(double t, const Vector3& otherVector)
 {
     return Vector3(t*otherVector.e[0], t*otherVector.e[1], t*otherVector.e[2]);
 }
+
+inline Vector3 operator/(Vector3 otherVector, double t)
+{
+    return (1/t) * otherVector;
+}
+
+inline double Vector3::dot(const Vector3& u, const Vector3& otherVector)
+{
+    return u.e[0] * otherVector.e[0]
+        +  u.e[1] * otherVector.e[1]
+        +  u.e[2] * otherVector.e[2];
+}
+
+inline Vector3 Vector3::cross(const Vector3& u, const Vector3& otherVector)
+{
+    return Vector3(u.e[1] * otherVector.e[2] - u.e[2] * otherVector.e[1],
+                   u.e[2] * otherVector.e[0] - u.e[0] * otherVector.e[2],
+                   u.e[0] * otherVector.e[1] - u.e[1] * otherVector.e[0]);
+}
+
+inline Vector3 Vector3::UnitVector(Vector3 otherVector)
+{
+    return otherVector / otherVector.Length();
+}

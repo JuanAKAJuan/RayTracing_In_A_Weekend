@@ -37,10 +37,14 @@ class Vector3
         friend inline Vector3 operator-(const Vector3& u, const Vector3& otherVector);
         friend inline Vector3 operator*(const Vector3& u, const Vector3& otherVector);
         friend inline Vector3 operator*(double t, const Vector3& otherVector);
+        friend inline Vector3 operator/(Vector3 otherVector, double t);
+        inline double dot(const Vector3& u, const Vector3& otherVector);
+        inline Vector3 cross(const Vector3& u, const Vector3& otherVector);
+        inline Vector3 UnitVector(Vector3 otherVector);
 };
 
 // Type aliases for Vector3
-using point3 = Vector3;    // 3D point
-using color = Vector3;    // RGB color
+using Point3 = Vector3;    // 3D point
+using Color = Vector3;    // RGB color
 
 #endif //RAYTRACING_IN_A_WEEKEND_VECTOR3_H
